@@ -40,8 +40,8 @@ label start:
     vp "We should remember to thank White for setting us up with this gig."
     vp "Just a few more months, then I can finally afford that trip to Australia..."
     vp "What about you Nats?"
-    hide natsuki idle
-    show natsukipissed idle
+    # hide natsuki idle ## Unnecessary
+    show natsuki pout
     n "Didn’t I tell you to not call me by that name…"
     menu:
         "Apologize.":
@@ -51,15 +51,19 @@ label start:
         "Tease her.":
             vp "What’s wrong about it? It’s a good little nickname. Short and straightforward, just like you."
             n "Well fuck you too Penn. I may be shorter than you, but I can still kick your ass!"
-    hide natsukipissed idle
+    # hide natsuki pout ## Unnecessary
     show natsuki idle
     n "Anyway, I don’t actually know what I would be doing once we’re-"
+    hide natsuki
     show whitman idle
     w "Hey Penn! Natsuki! Your shift's about to start! You’d better go and take Anderson’s place."
     w "Make the crotchety bastard wait on that tower a minute after his shift ends and you’ll never hear the end of it."
     w "The captain is also already there to supervise the shift change."
+    show whitman idle at right
+    show natsuki pout at left
     vp "We’ll be there in a second."
     hide whitman idle
+    show natsuki pout at center
     vp "Well… you were saying?"
     n "Let’s go to the Captain first. We can talk about this when we’re in the tower."
     hide natsuki idle
@@ -86,15 +90,6 @@ label start:
 
     # Transition to tower scene
 
-    call prototype_verbatim
-
-    "END OF DEMO"
-
-    # The game ends on return
-
-    return
-
-label prototype_verbatim:
     "Climbing the tower, I see that the captain is right. Anderson is even more restless than usual."
     show anderson idle
     "He's smoking, of course, and I see more than one empty pack of crisps on the floor."
@@ -363,3 +358,9 @@ label prototype_verbatim:
     t "No you don’t. Get packing before 08:00 sharp."
     t "We have uses for the likes of you two."
     hide agent idle
+
+    "END OF DEMO"
+
+    # The game ends on return
+
+    return
